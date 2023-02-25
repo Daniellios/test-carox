@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import popup_styles from "@/styles/Popup.module.css";
 
 import InputMask, { Props as MaskProps } from "react-input-mask";
+import { AppContext, IAppContext } from "@/context/appContext";
 
 interface IPopupInput {
   value: string;
   type?: string;
+  isError: boolean;
   placeholder?: string;
   onValueEnter: (str: string) => void;
   disabled?: boolean;
@@ -16,6 +18,7 @@ const PopupInput: React.FC<IPopupInput> = ({
   type,
   placeholder,
   onValueEnter,
+  isError,
   disabled,
 }) => {
   const makeMaskInput = (inputProps: MaskProps) => {
@@ -62,7 +65,9 @@ const PopupInput: React.FC<IPopupInput> = ({
           required={true}
           value={value}
           onChange={(e) => onValueEnter(e.target.value)}
-          className={popup_styles.form_input}
+          className={`${popup_styles.form_input} ${
+            isError ? popup_styles.input_error : ""
+          }`}
           type={type}
           placeholder={placeholder}
         />

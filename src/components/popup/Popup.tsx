@@ -17,15 +17,34 @@ const Popup = () => {
   const [name, setName] = useState<string>("");
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isValidPhone, setIsValidPhone] = useState<boolean>(false);
+  const [isValidName, setIsValidName] = useState<boolean>(false);
+
+  const enableErrorMessage = (InvalidField: any) => {
+    InvalidField.classList.add(`${popup_styles.input_error}`);
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const FormElement = e.target as HTMLFormElement;
+    const isValid = FormElement.checkValidity();
+    const InvalidFields = FormElement.querySelectorAll(":invalid");
+
+    InvalidFields.forEach((field) => enableErrorMessage(field));
+
     e.preventDefault();
-    setIsLoading(true);
-    setTimeout(() => {
-      handleFormData({ ...formData, phone, name });
-      togglePopup();
-      setIsLoading(false);
-    }, 2500);
+
+    if (isValid) {
+      setIsLoading(true);
+
+      setTimeout(() => {
+        handleFormData({ ...formData, phone, name });
+        togglePopup();
+        setIsLoading(false);
+        InvalidFields.forEach((field) => {
+          field.classList.remove(`${popup_styles.input_error}`);
+        });
+      }, 2500);
+    }
   };
 
   return (
@@ -53,16 +72,18 @@ const Popup = () => {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className={popup_styles.form}>
+        <form onSubmit={handleSubmit} className={popup_styles.form} noValidate>
           <div className={popup_styles.inputs_container}>
             <PopupInput
               value={phone}
+              isError={isValidPhone}
               onValueEnter={(phone) => setPhone(phone)}
               placeholder="+7 (921) 123 45 67"
               type="tel"
             ></PopupInput>
 
             <PopupInput
+              isError={isValidName}
               value={name}
               onValueEnter={(name) => setName(name)}
               placeholder="Имя"

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/styles/Hero.module.css";
+import styles from "@/styles/Slider.module.css";
 import Caret from "../svg/Caret";
 import CountdownCircle from "../svg/CountdownCircle";
 

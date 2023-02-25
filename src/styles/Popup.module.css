@@ -174,9 +174,21 @@
   width: 100%;
   padding: 8px 24px;
   font-size: 1rem;
+  border: 1px solid transparent;
+
+  outline: 1px solid transparent;
+
   color: var(--dark-gray);
   line-height: 24px;
   font-weight: 700;
+
+  -webkit-box-shadow: 0px 0px 0px 0 rgba(255, 149, 20, 0);
+  -moz-box-shadow: 0px 0px 0px 0 rgba(255, 149, 20, 0);
+  box-shadow: 0px 0px 0px 0 rgba(255, 149, 20, 0);
+}
+
+.form_input:hover {
+  background-color: #eaeaeb;
 }
 
 .form_input:focus {
@@ -184,6 +196,7 @@
   -webkit-box-shadow: 0px 0px 0px 4px rgba(255, 149, 20, 0.3);
   -moz-box-shadow: 0px 0px 0px 4px rgba(255, 149, 20, 0.3);
   box-shadow: 0px 0px 0px 4px rgba(255, 149, 20, 0.3);
+  border: 1px solid transparent;
 }
 
 .form_input_phone {
@@ -212,6 +225,10 @@
 
 .transparent {
   color: var(--transparent-gray);
+}
+
+.input_error {
+  border: 1px solid var(--red);
 }
 
 @media screen and (min-width: 1440px) {

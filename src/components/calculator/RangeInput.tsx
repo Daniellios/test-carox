@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import styles from "@/styles/Sliders.module.css";
+import styles from "@/styles/Range.module.css";
 
 const RangeInput = ({
   rangeGrad,

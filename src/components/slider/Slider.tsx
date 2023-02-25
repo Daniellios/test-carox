@@ -1,6 +1,6 @@
 import { slides } from "@/constants/slider";
 import React, { useContext, useEffect, useState } from "react";
-import hero_styles from "@/styles/Hero.module.css";
+import hero_styles from "@/styles/Slider.module.css";
 import SliderControl from "./SliderControl";
 
 import shared_styles from "@/styles/Shared.module.css";
