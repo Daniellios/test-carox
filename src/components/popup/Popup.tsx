@@ -57,6 +57,8 @@ const Popup = () => {
       setTimeout(() => {
         handleFormData({ ...formData, phone, name });
         togglePopup();
+        console.log(formData);
+
         setIsLoading(false);
       }, 2500);
     }

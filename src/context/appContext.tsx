@@ -42,8 +42,6 @@ export const AppState: FC<IAppProps> = ({ children }) => {
   });
 
   const handleFormData = (updatedForm: IFormData) => {
-    console.log(updatedForm);
-
     setFormData({ ...formData, ...updatedForm });
   };
 
