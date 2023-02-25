@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FormEvent, useState } from "react";
 import popup_styles from "@/styles/Popup.module.css";
 
 import InputMask, { Props as MaskProps } from "react-input-mask";
@@ -53,6 +53,9 @@ const PopupInput: React.FC<IPopupInput> = ({
             Телефон <span className={popup_styles.transparent}>*</span>
           </p>
         </div>
+        {isError && (
+          <div className={popup_styles.validationMessage}>Не заполнено</div>
+        )}
       </div>
     );
   };
@@ -70,7 +73,9 @@ const PopupInput: React.FC<IPopupInput> = ({
           type={type}
           placeholder={placeholder}
         />
-        {isError && "fsfas"}
+        {isError && (
+          <div className={popup_styles.validationMessage}>Не заполнено</div>
+        )}
       </div>
     );
   };

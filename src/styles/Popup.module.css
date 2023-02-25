@@ -230,17 +230,30 @@
 .input_error {
   border: 1px solid var(--red);
 }
-
-@media screen and (min-width: 1440px) {
+.name_input_wrapper {
+  position: relative;
 }
-
-@media screen and (min-width: 1023px) {
+.validationMessage {
+  position: absolute;
+  font-size: 1rem;
+  z-index: 10;
+  right: 10px;
+  top: 20px;
+  color: red;
+  font-size: 10px;
 }
 
 @media screen and (min-width: 767px) {
   .container {
     height: 665px;
     padding: 120px 36px 36px 36px;
+  }
+
+  .validationMessage {
+    bottom: -25px;
+    right: unset;
+    top: unset;
+    font-size: 1rem;
   }
 
   .form_wrapper {
@@ -303,4 +316,9 @@
     width: 24px;
     height: 24px;
   }
+}
+@media screen and (min-width: 1023px) {
+}
+
+@media screen and (min-width: 1440px) {
 }

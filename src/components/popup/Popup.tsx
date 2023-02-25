@@ -17,8 +17,8 @@ const Popup = () => {
   const [name, setName] = useState<string>("");
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isValidPhone, setIsValidPhone] = useState<boolean>(false);
-  const [isValidName, setIsValidName] = useState<boolean>(false);
+  const [IsPhoneError, setIsPhoneError] = useState<boolean>(false);
+  const [isNameError, setIsNameError] = useState<boolean>(false);
 
   const enableErrorMessage = (InvalidField: any) => {
     InvalidField.classList.add(`${popup_styles.input_error}`);
@@ -26,6 +26,20 @@ const Popup = () => {
 
   const removeErrorMessage = (InvalidField: any) => {
     InvalidField.classList.remove(`${popup_styles.input_error}`);
+  };
+
+  const toggleMessage = (InvalidFields: any) => {
+    if (InvalidFields[0]) {
+      setIsPhoneError(true);
+    } else {
+      setIsPhoneError(false);
+    }
+
+    if (InvalidFields[1]) {
+      setIsNameError(true);
+    } else {
+      setIsNameError(false);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -36,15 +50,14 @@ const Popup = () => {
     const InvalidFields = FormElement.querySelectorAll(":invalid");
 
     InvalidFields.forEach((field) => enableErrorMessage(field));
-
+    toggleMessage(InvalidFields);
     if (isValid) {
       setIsLoading(true);
-
+      InvalidFields.forEach((field) => removeErrorMessage(field));
       setTimeout(() => {
         handleFormData({ ...formData, phone, name });
         togglePopup();
         setIsLoading(false);
-        InvalidFields.forEach((field) => removeErrorMessage(field));
       }, 2500);
     }
   };
@@ -78,14 +91,14 @@ const Popup = () => {
           <div className={popup_styles.inputs_container}>
             <PopupInput
               value={phone}
-              isError={isValidPhone}
+              isError={IsPhoneError}
               onValueEnter={(phone) => setPhone(phone)}
               placeholder="+7 (921) 123 45 67"
               type="tel"
             ></PopupInput>
 
             <PopupInput
-              isError={isValidName}
+              isError={isNameError}
               value={name}
               onValueEnter={(name) => setName(name)}
               placeholder="Имя"
