@@ -2,6 +2,7 @@ import React, { FormEvent, useState } from "react";
 import popup_styles from "@/styles/Popup.module.css";
 
 import InputMask, { Props as MaskProps } from "react-input-mask";
+import Check from "../svg/Check";
 
 interface IPopupInput {
   value: string;
@@ -23,7 +24,9 @@ const PopupInput: React.FC<IPopupInput> = ({
   const makeMaskInput = (inputProps: MaskProps) => {
     return (
       <input
-        className={`${popup_styles.form_input} ${popup_styles.form_input_phone}`}
+        className={`${popup_styles.form_input} ${
+          popup_styles.form_input_phone
+        } ${isError ? popup_styles.input_error : ""}`}
         required={true}
         placeholder={placeholder}
         type={type}
@@ -53,6 +56,17 @@ const PopupInput: React.FC<IPopupInput> = ({
             Телефон <span className={popup_styles.transparent}>*</span>
           </p>
         </div>
+
+        <div
+          className={` ${
+            value !== "" && !isError
+              ? popup_styles.input_check
+              : popup_styles.input_check_hidden
+          }`}
+        >
+          <Check></Check>
+        </div>
+
         {isError && (
           <div className={popup_styles.validationMessage}>Не заполнено</div>
         )}
@@ -73,6 +87,17 @@ const PopupInput: React.FC<IPopupInput> = ({
           type={type}
           placeholder={placeholder}
         />
+
+        <div
+          className={` ${
+            value !== "" && !isError
+              ? popup_styles.input_check
+              : popup_styles.input_check_hidden
+          }`}
+        >
+          <Check></Check>
+        </div>
+
         {isError && (
           <div className={popup_styles.validationMessage}>Не заполнено</div>
         )}

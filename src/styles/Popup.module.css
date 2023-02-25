@@ -243,6 +243,27 @@
   font-size: 10px;
 }
 
+.input_check {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+  opacity: 1;
+  top: 12px;
+  border-radius: 8px;
+  width: 24px;
+  height: 24px;
+  background-color: #77de8d;
+  justify-content: center;
+  transition: all ease 0.2s;
+}
+
+.input_check_hidden {
+  position: absolute;
+  transition: all ease 0.2s;
+  opacity: 0;
+}
+
 @media screen and (min-width: 767px) {
   .container {
     height: 665px;

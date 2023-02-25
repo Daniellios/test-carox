@@ -52,8 +52,9 @@ const Popup = () => {
     InvalidFields.forEach((field) => enableErrorMessage(field));
     toggleMessage(InvalidFields);
     if (isValid) {
-      setIsLoading(true);
       InvalidFields.forEach((field) => removeErrorMessage(field));
+
+      setIsLoading(true);
       setTimeout(() => {
         handleFormData({ ...formData, phone, name });
         togglePopup();
