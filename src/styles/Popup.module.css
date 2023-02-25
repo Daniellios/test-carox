@@ -175,7 +175,7 @@
   padding: 8px 24px;
   font-size: 1rem;
   border: 1px solid transparent;
-
+  position: relative;
   outline: 1px solid transparent;
 
   color: var(--dark-gray);

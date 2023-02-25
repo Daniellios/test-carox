@@ -1,8 +1,7 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import popup_styles from "@/styles/Popup.module.css";
 
 import InputMask, { Props as MaskProps } from "react-input-mask";
-import { AppContext, IAppContext } from "@/context/appContext";
 
 interface IPopupInput {
   value: string;
@@ -71,6 +70,7 @@ const PopupInput: React.FC<IPopupInput> = ({
           type={type}
           placeholder={placeholder}
         />
+        {isError && "fsfas"}
       </div>
     );
   };

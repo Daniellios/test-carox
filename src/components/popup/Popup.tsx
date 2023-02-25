@@ -29,13 +29,13 @@ const Popup = () => {
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     const FormElement = e.target as HTMLFormElement;
     const isValid = FormElement.checkValidity();
     const InvalidFields = FormElement.querySelectorAll(":invalid");
 
     InvalidFields.forEach((field) => enableErrorMessage(field));
-
-    e.preventDefault();
 
     if (isValid) {
       setIsLoading(true);
