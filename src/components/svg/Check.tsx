@@ -9,13 +9,13 @@ const Check = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_1_4290)">
+      <g clipPath="url(#clip0_1_4290)">
         <path
           d="M3.33337 7.99984L6.66671 11.3332L13.3334 4.6665"
           stroke="white"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
       <defs>
