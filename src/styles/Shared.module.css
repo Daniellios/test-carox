@@ -1,0 +1,147 @@
+.button_filled {
+  border: 1px solid transparent;
+  background: var(--orange);
+  color: white;
+  position: relative;
+  min-width: 174px;
+}
+
+.button_filled:disabled {
+  cursor: not-allowed;
+}
+
+.button_filled:hover {
+  border: 1px solid transparent;
+  background-color: var(--black);
+}
+
+.button_filled:active {
+  background-color: var(--dark-gray);
+}
+
+.button_filled:disabled:hover {
+  background: var(--orange);
+}
+
+.button_hollow {
+  margin-left: 24px;
+  border: 1px solid var(--orange);
+  background: transparent;
+  color: var(--orange);
+  min-width: 174px;
+}
+
+.button_hollow:disabled {
+  background-color: white;
+  border: 1px solid var(--orange);
+
+  cursor: not-allowed;
+}
+
+.button_hollow:disabled:hover {
+  border: 1px solid var(--orange);
+  background: transparent;
+  color: var(--orange);
+}
+
+.button_hollow:hover {
+  border: 1px solid transparent;
+  background-color: var(--orange);
+  color: white;
+}
+
+.button_hollow:active {
+  background-color: #ffa83d;
+}
+
+.button_white {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--black);
+  min-width: 174px;
+}
+
+.button_white:disabled {
+  background-color: white;
+  border: 1px solid var(--orange);
+
+  cursor: not-allowed;
+}
+
+.button_white:disabled:hover {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--black);
+}
+
+.button_white:hover {
+  border: 1px solid transparent;
+  background-color: var(--orange);
+  color: white;
+}
+
+.button_white:active {
+  background-color: var(--dark-gray);
+  color: white;
+}
+
+.loading_ring {
+  display: inline-block;
+  position: relative;
+  width: 36px;
+  height: 36px;
+}
+
+.loading_ring div {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  margin: 2px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  animation: loading_ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  -webkit-animation: loading_ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.loading_ring div:nth-child(1) {
+  -webkit-animation-delay: -0.3s;
+  animation-delay: -0.3s;
+}
+
+.loading_ring div:nth-child(2) {
+  animation-delay: -0.15s;
+  -webkit-animation-delay: -0.15s;
+}
+
+.loading_ring div:nth-child(3) {
+  animation-delay: -0.05s;
+  -webkit-animation-delay: -0.05s;
+}
+
+@keyframes loading_ring {
+  0% {
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes loading_ring {
+  0% {
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(360deg);
+  }
+}

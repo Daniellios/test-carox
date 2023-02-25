@@ -1,0 +1,193 @@
+.container {
+  max-width: 1440px;
+  width: 100%;
+  display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  justify-content: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-items: start;
+  gap: 2rem;
+
+  padding: 0 20px;
+  flex-direction: column;
+}
+
+.grid_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.slider_grid {
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 96px);
+
+  gap: 30px;
+}
+
+.deal_grid {
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.title {
+  font-weight: 900;
+  font-family: var(--neskt-font);
+  font-style: normal;
+  font-size: 34px;
+  line-height: 90%;
+}
+
+.deal_container {
+  display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  justify-items: start;
+}
+
+.deal_sub_title {
+  font-family: var(--gilroy-font);
+  font-weight: 400;
+  color: var(--dark-gray);
+  font-size: 14px;
+}
+
+.deal_total {
+  font-family: var(--neskt-font);
+  font-weight: 900;
+  color: var(--light-black);
+  font-style: normal;
+  font-size: 22px;
+}
+
+.button_main {
+  background-color: var(--orange);
+  color: white;
+  font-family: var(--neskt-font);
+  border: transparent;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-weight: bold;
+  font-size: 30px;
+  height: 68px;
+  width: 100%;
+  max-width: 280px;
+  font-size: 22px;
+
+  /* @media (hover: hover) {
+      button:hover 
+        background-color: $buttonHover; solves sticky problem 
+    } */
+}
+
+.button_main:disabled {
+  background-color: var(--disabled);
+  cursor: not-allowed;
+}
+
+.button_main:hover {
+  /* transition: all 0.1s ease-in-out; */
+  background-color: var(--black);
+}
+
+.button_main:active {
+  background-color: var(--dark-gray);
+}
+
+.button_main:disabled:hover {
+  background-color: var(--disabled);
+}
+
+@media screen and (min-width: 767px) {
+  .deal_grid {
+    column-gap: 85px;
+    row-gap: 44px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .slider_grid {
+    gap: 32px;
+    grid-template-rows: repeat(3, 119px);
+  }
+
+  .title {
+    font-size: 54px;
+  }
+
+  .deal_container {
+    gap: 8px;
+  }
+  .deal_sub_title {
+    font-size: 1rem;
+  }
+
+  .deal_total {
+    font-size: 54px;
+  }
+
+  .button_main {
+    max-width: 345px;
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 1023px) {
+  .container {
+    gap: 32px;
+  }
+
+  .grid_container {
+    gap: 44px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    gap: 44px;
+  }
+  .slider_grid {
+    column-gap: 32px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 119px);
+  }
+
+  .deal_grid {
+    column-gap: 32px;
+    justify-content: end;
+    align-items: flex-end;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+
+  .title {
+    max-width: 50%;
+  }
+  .button_main {
+    max-width: unset;
+  }
+}
