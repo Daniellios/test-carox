@@ -24,6 +24,10 @@ const Popup = () => {
     InvalidField.classList.add(`${popup_styles.input_error}`);
   };
 
+  const removeErrorMessage = (InvalidField: any) => {
+    InvalidField.classList.remove(`${popup_styles.input_error}`);
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     const FormElement = e.target as HTMLFormElement;
     const isValid = FormElement.checkValidity();
@@ -40,9 +44,7 @@ const Popup = () => {
         handleFormData({ ...formData, phone, name });
         togglePopup();
         setIsLoading(false);
-        InvalidFields.forEach((field) => {
-          field.classList.remove(`${popup_styles.input_error}`);
-        });
+        InvalidFields.forEach((field) => removeErrorMessage(field));
       }, 2500);
     }
   };

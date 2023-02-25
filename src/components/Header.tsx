@@ -33,8 +33,8 @@ const Header = () => {
           <div className={styles.logo_wrap}>
             <Image
               src={"./LeasingCar.svg"}
-              width={132.15}
-              height={34.63}
+              width={132}
+              height={35}
               alt="Leasing"
             ></Image>
             <span className={styles.header_car}>
@@ -48,7 +48,7 @@ const Header = () => {
 
         <div className={styles.header_right}>
           <div className={styles.link_wrap}>
-            <span className={styles.header_link_lease}>
+            <div className={styles.header_link_lease}>
               <Link href={""}>Лизиниг</Link>
 
               <div className={styles.header_dropdown}>
@@ -66,7 +66,7 @@ const Header = () => {
                   </li>
                 </ul>
               </div>
-            </span>
+            </div>
 
             <Link className={styles.header_link} href={""}>
               Каталог

@@ -91,25 +91,23 @@ const Slider = () => {
             })}
           </div>
 
-          <div className={hero_styles.slider_controls}>
-            {slides.map((_, idx) => {
-              if (currentSlide === idx) {
-                return (
-                  <>
-                    <SliderControl
-                      controlType="PREV"
-                      handlePrev={handlePreviousSlide}
-                    ></SliderControl>
+          {slides.map((value, idx) => {
+            if (currentSlide === idx) {
+              return (
+                <div className={hero_styles.slider_controls} key={value.id}>
+                  <SliderControl
+                    controlType="PREV"
+                    handlePrev={handlePreviousSlide}
+                  ></SliderControl>
 
-                    <SliderControl
-                      controlType="NEXT"
-                      handleNext={handleNextSlideChange}
-                    ></SliderControl>
-                  </>
-                );
-              }
-            })}
-          </div>
+                  <SliderControl
+                    controlType="NEXT"
+                    handleNext={handleNextSlideChange}
+                  ></SliderControl>
+                </div>
+              );
+            }
+          })}
         </div>
       </div>
     </div>
