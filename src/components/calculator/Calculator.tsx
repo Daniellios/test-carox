@@ -9,23 +9,24 @@ const Calculator = () => {
     AppContext
   ) as IAppContext;
 
-  const [price, setPrice] = useState(3300000);
+  const [price, setPrice] = useState<number>(3300000);
 
-  const [firstPaymentPercent, setFirstPaymentPercent] = useState(10);
+  const [firstPaymentPercent, setFirstPaymentPercent] = useState<number>(10);
 
-  const [firstPaymentSum, setFirstPaymentSum] = useState(1);
+  const [firstPaymentSum, setFirstPaymentSum] = useState<number>(1);
 
-  const [months, setMonths] = useState(60);
+  const [months, setMonths] = useState<number>(60);
 
-  const [monthlyPayment, setMonthlyPayment] = useState(1);
+  const [monthlyPayment, setMonthlyPayment] = useState<number>(1);
 
-  const [dealSum, setDealSum] = useState(1);
+  const [dealSum, setDealSum] = useState<number>(1);
 
-  const [isDisabled, setIsDisabled] = useState(false);
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const [requestTextStatus, setRequestTextStatus] = useState("Оставить заявку");
+  const [requestTextStatus, setRequestTextStatus] =
+    useState<string>("Оставить заявку");
 
   const updatedFormData: IFormData = {
     ...formData,

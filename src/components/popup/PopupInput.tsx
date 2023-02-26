@@ -1,5 +1,6 @@
 import React, { FormEvent, useState } from "react";
 import popup_styles from "@/styles/Popup.module.css";
+import shared_styles from "@/styles/Shared.module.css";
 
 import InputMask, { Props as MaskProps } from "react-input-mask";
 import Check from "../svg/Check";
@@ -10,7 +11,7 @@ interface IPopupInput {
   isError: boolean;
   placeholder?: string;
   onValueEnter: (str: string) => void;
-  disabled?: boolean;
+  isDisabled?: boolean;
 }
 
 const PopupInput: React.FC<IPopupInput> = ({
@@ -19,18 +20,18 @@ const PopupInput: React.FC<IPopupInput> = ({
   placeholder,
   onValueEnter,
   isError,
-  disabled,
+  isDisabled,
 }) => {
   const makeMaskInput = (inputProps: MaskProps) => {
     return (
       <input
         className={`${popup_styles.form_input} ${
           popup_styles.form_input_phone
-        } ${isError ? popup_styles.input_error : ""}`}
+        } ${isError ? popup_styles.input_error : popup_styles.no_input_error}`}
         required={true}
         placeholder={placeholder}
         type={type}
-        disabled={disabled}
+        disabled={isDisabled}
         {...inputProps}
       ></input>
     );
@@ -59,7 +60,7 @@ const PopupInput: React.FC<IPopupInput> = ({
 
         <div
           className={` ${
-            value !== "" && !isError
+            !isError
               ? popup_styles.input_check
               : popup_styles.input_check_hidden
           }`}
@@ -69,6 +70,12 @@ const PopupInput: React.FC<IPopupInput> = ({
 
         {isError && (
           <div className={popup_styles.validationMessage}>Не заполнено</div>
+        )}
+
+        {isDisabled ? (
+          <div className={shared_styles.disable_overlay_popup}></div>
+        ) : (
+          ""
         )}
       </div>
     );
@@ -100,6 +107,12 @@ const PopupInput: React.FC<IPopupInput> = ({
 
         {isError && (
           <div className={popup_styles.validationMessage}>Не заполнено</div>
+        )}
+
+        {isDisabled ? (
+          <div className={shared_styles.disable_overlay_popup}></div>
+        ) : (
+          ""
         )}
       </div>
     );

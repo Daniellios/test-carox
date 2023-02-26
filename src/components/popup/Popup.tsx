@@ -28,20 +28,6 @@ const Popup = () => {
     InvalidField.classList.remove(`${popup_styles.input_error}`);
   };
 
-  const toggleMessage = (InvalidFields: any) => {
-    if (InvalidFields[0]) {
-      setIsPhoneError(true);
-    } else {
-      setIsPhoneError(false);
-    }
-
-    if (InvalidFields[1]) {
-      setIsNameError(true);
-    } else {
-      setIsNameError(false);
-    }
-  };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -50,9 +36,11 @@ const Popup = () => {
     const InvalidFields = FormElement.querySelectorAll(":invalid");
 
     InvalidFields.forEach((field) => enableErrorMessage(field));
-    toggleMessage(InvalidFields);
+
     if (isValid) {
       InvalidFields.forEach((field) => removeErrorMessage(field));
+      setIsNameError(false);
+      setIsPhoneError(false);
 
       setIsLoading(true);
       setTimeout(() => {
@@ -62,6 +50,9 @@ const Popup = () => {
 
         setIsLoading(false);
       }, 2500);
+    } else {
+      setIsNameError(true);
+      setIsPhoneError(true);
     }
   };
 

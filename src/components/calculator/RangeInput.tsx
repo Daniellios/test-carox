@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import styles from "@/styles/Range.module.css";
 
+import shared_styles from "@/styles/Shared.module.css";
+
 const RangeInput = ({
   rangeGrad,
   onSliderChange,
@@ -85,7 +87,7 @@ const RangeInput = ({
         ></input>
       </div>
 
-      {isDisabled ? <div className={styles.disable_overlay}></div> : ""}
+      {isDisabled ? <div className={shared_styles.disable_overlay}></div> : ""}
     </div>
   );
 };

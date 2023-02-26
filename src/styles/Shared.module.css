@@ -85,6 +85,36 @@
   color: white;
 }
 
+.disable_overlay {
+  position: absolute;
+  height: 140%;
+  width: 100%;
+  left: 0;
+  border-radius: 12px;
+  background-color: white;
+  opacity: 0.3;
+  z-index: 99;
+}
+
+.disable_overlay_popup {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 12px;
+  background-color: white;
+  opacity: 0.3;
+  z-index: 99;
+}
+
+.disable_overlay_popup:hover {
+  cursor: not-allowed;
+}
+.disable_overlay:hover {
+  cursor: not-allowed;
+}
+
 .loading_ring {
   display: inline-block;
   position: relative;
